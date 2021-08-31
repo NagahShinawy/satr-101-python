@@ -39,7 +39,10 @@ class User(PrettyTableMixin, MessageMixin):
     def is_exists(self, name_or_number: str):
         name_or_number = name_or_number.lower()
         for contact in self.contacts:
-            if contact.name.lower() == name_or_number or contact.phone.number == name_or_number:
+            if (
+                contact.name.lower() == name_or_number
+                or contact.phone.number == name_or_number
+            ):
                 return contact
         return None
 
@@ -54,4 +57,3 @@ class User(PrettyTableMixin, MessageMixin):
         if contact:
             return contact.phone
         return self.NOTFOUND_MESSAGE.format(contact=number)
-
