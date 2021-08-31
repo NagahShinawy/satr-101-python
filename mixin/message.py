@@ -16,11 +16,21 @@ class ContactAddedMessage(Message):
 
 
 class AlreadyExistsMessage(Message):
-    text = 'contact "{contact}" was Found'
+    text = 'contact "{contact}" Already Exists'
+
+
+class NotFoundMessage(Message):
+    text = 'contact "{contact}" Not Found'
+
+
+class RemovedMessage(Message):
+    text = 'contact "{contact}" was removed'
 
 
 class MessageMixin:
     DUPLICATED_NAME_MESSAGE = DuplicatedNameMessage.text
     DUPLICATED_PHONE_MESSAGE = DuplicatedPhoneMessage.text
     CONTACT_ADDED_MESSAGE = ContactAddedMessage.text
+    NOTFOUND_MESSAGE = NotFoundMessage.text
     ALREADY_EXISTS_MESSAGE = AlreadyExistsMessage.text
+    REMOVED_MESSAGE = RemovedMessage.text

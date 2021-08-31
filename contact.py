@@ -9,7 +9,7 @@ class Contact(PrettyTableMixin):
         super().__init__(*args, **kwargs)
         self.name = name
         self.phone = phone
-        self.rows = [(self.name, self.phone)]
+        self.rows = [self]
 
     def __str__(self):
         return self.name

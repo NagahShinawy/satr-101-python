@@ -13,6 +13,7 @@ if __name__ == "__main__":
     john = Contact(name="John", phone=phone1)
     james = Contact(name="James", phone=phone2)
     loen = Contact(name="Loen", phone=phone5)
+    smith = Contact(name="Smith", phone=phone3)
 
     # ########### ########### ########### ########### ########### ########### ##########
 
@@ -26,6 +27,9 @@ if __name__ == "__main__":
     adam.add_contact(john)
     adam.add_contact(james)
     adam.add_contact(loen)
+    adam.add_contact(loen)
+    adam.remove_contact(james)
+    adam.remove_contact(smith)
 
     # ########### ########### ########### ########### ########### ########### ##########
     print("\n# ########### ########### ########### ########### ########### ########### ##########\n")
