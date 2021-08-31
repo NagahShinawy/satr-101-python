@@ -1,6 +1,5 @@
-from prettytable import PrettyTable
 from phone import Phone
-
+from mixins import PrettyTableMixin
 
 # contacts = [
 #     {"name": "john", "phone": {"code": "+20", "number": "01289584983"}},
@@ -9,10 +8,11 @@ from phone import Phone
 # ]
 
 
-class Contact:
-    FILED_NAMES = ["name", "phone"]
+class Contact(PrettyTableMixin):
+    FILED_NAMES = ["Name", "Phone"]
 
-    def __init__(self, name: str, phone: Phone):
+    def __init__(self, name: str, phone: Phone, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.name = name
         self.phone = phone
 
@@ -20,7 +20,6 @@ class Contact:
         return self.name
 
     def to_pretty(self):
-        contacts_tbl = PrettyTable()
-        contacts_tbl.field_names = self.FILED_NAMES
-        contacts_tbl.add_row([self.name, self.phone])
-        return contacts_tbl
+        self.field_names = self.FILED_NAMES
+        self.add_row([self.name, self.phone])
+        return self.get_string()
