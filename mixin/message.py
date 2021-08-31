@@ -27,7 +27,7 @@ class RemovedMessage(Message):
     text = 'contact "{contact}" was removed'
 
 
-class MessageMixin:
+class MessagesMixin:
     DUPLICATED_NAME_MESSAGE = DuplicatedNameMessage.text
     DUPLICATED_PHONE_MESSAGE = DuplicatedPhoneMessage.text
     CONTACT_ADDED_MESSAGE = ContactAddedMessage.text

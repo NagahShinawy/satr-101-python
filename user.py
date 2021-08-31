@@ -1,8 +1,8 @@
 from mixin.pretty import PrettyTableMixin
-from mixin.message import MessageMixin
+from mixin.message import MessagesMixin
 
 
-class User(PrettyTableMixin, MessageMixin):
+class User(PrettyTableMixin, MessagesMixin):
     FIELDS_NAMES = ["Name", "Phone"]
 
     def __init__(self, username, *args, **kwargs):
@@ -10,14 +10,6 @@ class User(PrettyTableMixin, MessageMixin):
         self.username = username
         self.contacts = []
         self.rows = self.contacts
-
-    @property
-    def contacts_names(self):
-        return [contact.name.lower() for contact in self.contacts]
-
-    @property
-    def contacts_phones(self):
-        return [contact.phone for contact in self.contacts]
 
     def __str__(self):
         return self.username
